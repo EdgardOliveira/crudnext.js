@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="DataSourceManagerImpl" format="xml" multifile-model="true">
+    <data-source source="LOCAL" name="VenomNAS@CRUDNextJS" uuid="7aab69d0-7c7c-48c5-86c4-9ede94a70f02">
+      <driver-ref>mariadb</driver-ref>
+      <synchronize>true</synchronize>
+      <remarks>Banco de dados na nuvem pessoal</remarks>
+      <jdbc-driver>org.mariadb.jdbc.Driver</jdbc-driver>
+      <jdbc-url>jdbc:mariadb://venom.synology.me:3306/crudnextjs</jdbc-url>
+    </data-source>
+  </component>
+</project>

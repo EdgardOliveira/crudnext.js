@@ -1,18 +1,9 @@
-# CRUD com Next.js
-Web app criado para testes com o novo framework Next.js
+import {query} from '../lib/db'
 
-## Tecnologias utilizadas
-1. Next.js
-2. MariaDB
-3. TypeScript
-
-## Dependências utilizadas
-1. serverless-mysql
-2. dotenv
-
-## Requisitos necessários
-### Crie um banco de dados no MariaDB e dê o nome de crudnextjs
-```mysql
+// Cria a tabela se ela não existir
+async function migrate() {
+    try {
+        await query(`
             CREATE TABLE IF NOT EXISTS enderecos
             (
                 id          INT AUTO_INCREMENT PRIMARY KEY,
@@ -30,4 +21,12 @@ Web app criado para testes com o novo framework Next.js
                 created_at  TIMESTAMP   NOT NULL DEFAULT CURRENT_TIMESTAMP,
                 updated_at  TIMESTAMP   NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
             )
-```
+    `)
+        console.log('A migração de endereços rodou com sucesso!')
+    } catch (e) {
+        console.error('Não conseguimos rodar a migração. Verifique as suas credencias no banco de dados!')
+        process.exit(1)
+    }
+}
+
+migrate().then(() => process.exit())
